@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>עתיד פיננסי יציב מתחיל כאן: הרצאה מקיפה בתכנון פיננסי</title>
+    
+    <!-- Google Fonts - Web Safe -->
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome - Web CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS - Web CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Assistant', 'Heebo', 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1F2937;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #2563EB22, #1E40AF22);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #F59E0B 0%, #f97316 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: #2563EB;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #F59E0B, #2563EB);
+            border-radius: 2px;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563EB, #F59E0B);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2563EB, #1E40AF);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2563EB;
+        }
+
+        .feature-card p {
+            color: #64748b;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+            color: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .testimonial-content {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: #F59E0B;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(180deg, #f1f5f9 0%, white 100%);
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: #2563EB;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 40px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: right;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2563EB;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            text-align: right;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Speaker Section */
+        .speaker-section {
+            padding: 80px 0;
+            background: white;
+            text-align: center;
+        }
+
+        .speaker-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 30px;
+            border: 5px solid #2563EB;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* Event Details */
+        .event-details {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 60px 0;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .detail-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .detail-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563EB, #F59E0B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-card,
+            .testimonial-card {
+                padding: 30px;
+            }
+            
+            .contact-form {
+                padding: 30px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Success/Error Messages */
+        .success-message {
+            background: #10B981;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .error-message {
+            background: #EF4444;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        /* Floating particles */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 2px, transparent 2px),
+                radial-gradient(circle at 40% 80%, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 100px 100px, 80px 80px, 60px 60px;
+            animation: float 20s infinite linear;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(-60px) rotate(240deg); }
+            100% { transform: translateY(0px) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>הרצאה מיוחדת: תכנון פיננסי לעתיד בטוח</h1>
+                <p class="subtitle">תאריך: 7.7.2025 | שעה: 15:00 | מיקום: משרדי החברה</p>
+                
+                <a href="#contact" class="cta-button">
+                    <i class="fas fa-rocket" style="margin-left: 10px;"></i>
+                    הירשם עכשיו למקום שמור!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    
+
+    
+
+    
+    <!-- Features Section -->
+    <section class="features section fade-in">
+        <div class="container">
+            <h2 class="section-title">למה כדאי להשתתף?</h2>
+            <div class="features-grid">
+                
+                <div class="feature-card" style="animation-delay: 0s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>הבנת עקרונות תכנון פיננסי</h3>
+                    <p>למד את היסודות ליצירת תקציב, חיסכון והשקעה חכמים שישרתו את מטרותיך.</p>
+                </div>
+                
+                <div class="feature-card" style="animation-delay: 0.2s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>כלים מעשיים לניהול כסף</h3>
+                    <p>קבל טיפים ואסטרטגיות ליישום מיידי בחייך הפיננסיים, שיעזרו לך לשלוט בהוצאות ולהגדיל חסכונות.</p>
+                </div>
+                
+                <div class="feature-card" style="animation-delay: 0.4s;">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>שאלות ותשובות עם מומחים</h3>
+                    <p>הזדמנות נדירה לשאול שאלות אישיות ולקבל הכוונה מקצועית ממומחים בתחום התכנון הפיננסי.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials section fade-in">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">מה אומרים המשתתפים</h2>
+            <div class="testimonials-grid">
+                
+                <div class="testimonial-card" style="animation-delay: 0s;">
+                    <p class="testimonial-content">"ההרצאה פתחה לי את העיניים! קיבלתי כלים פרקטיים ששינו את הגישה שלי לכסף והעניקו לי ביטחון פיננסי."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            א
+                        </div>
+                        <div class="author-info">
+                            <h4>אורית כהן</h4>
+                            <p>יזמית</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card" style="animation-delay: 0.3s;">
+                    <p class="testimonial-content">"אפילו כמי שעוסק בתחום, ההרצאה סיפקה לי נקודות מבט חדשות ומרעננות. מומלץ בחום לכל מי שרוצה לשפר את עתידו הכלכלי!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            ד
+                        </div>
+                        <div class="author-info">
+                            <h4>דניאל לוי</h4>
+                            <p>מנהל כספים</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section fade-in">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">הבטח את מקומך בהרצאה!</h2>
+                <p>מספר המקומות מוגבל! מלא את הפרטים ונחזור אליך עם אישור הרשמה ופרטים נוספים.</p>
+                
+                <form class="contact-form" id="contactForm">
+                    
+                    <div class="form-group">
+                        <label for="שם_מלא">שם מלא:</label>
+                        <input type="text" 
+                                    id="שם_מלא" 
+                                    name="שם_מלא" 
+                                    placeholder="הכנס שם מלא..." 
+                                    required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="טלפון">טלפון:</label>
+                        <input type="tel" 
+                                    id="טלפון" 
+                                    name="טלפון" 
+                                    placeholder="הכנס טלפון..." 
+                                    required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="אימייל">אימייל:</label>
+                        <input type="email" 
+                                    id="אימייל" 
+                                    name="אימייל" 
+                                    placeholder="הכנס אימייל..." 
+                                    required>
+                    </div>
+                    
+                    
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+                        שלח פרטים
+                    </button>
+                    
+                    <div id="successMessage" class="success-message">
+                        ✅ תודה על הרשמתך! נחזור אליך בהקדם.
+                    </div>
+                    
+                    <div id="errorMessage" class="error-message">
+                        ❌ אירעה שגיאה בשליחת הטופס. אנא נסה שוב.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web-Based Form Handling Script -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Form submission handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Hide previous messages
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            // Show loading state
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-left: 10px;"></i>שולח...';
+            submitButton.disabled = true;
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission (replace with actual endpoint)
+            setTimeout(() => {
+                try {
+                    // Here you would normally send to your server/service
+                    // For now, we'll simulate success
+                    console.log('Form data:', data);
+                    
+                    // Show success message
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form
+                    this.reset();
+                    
+                    // Reset button after delay
+                    setTimeout(() => {
+                        submitButton.innerHTML = originalText;
+                        submitButton.disabled = false;
+                    }, 2000);
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    errorMessage.style.display = 'block';
+                    submitButton.innerHTML = originalText;
+                    submitButton.disabled = false;
+                }
+            }, 2000);
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+        });
+
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.3s ease';
+    </script>
+</body>
+</html>
